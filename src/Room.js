@@ -10,27 +10,34 @@ function Room() {
   //   const setLit = state[1];
 
   const [isLit, setLit] = useState(false);
-  let [age, setAge] = useState(25);
+  
+  let [temp, setTemp] = useState(72);
 //   console.log(state)
     function updateLit(){
         console.log("Button Clicked")
         setLit(!isLit)
     }
-    function increaseAge(){
-        console.log("Age button clicked")
-        setAge(++age);
+    
+    function increaseTemp(){
+        console.log("Increaseing Temperature")
+        setTemp(++temp);
+    }
+    function decreaseTemp(){
+      console.log("Decreasing Temperature")
+      setTemp(--temp);
     }
 
   return(
     <div className={`room ${isLit? "lit": "dark"}`}> 
     
-      This Room is  {isLit? "Lit":"Dark"}
+      <h1>This Room is  {isLit? "Lit":"Dark"}</h1>
       <br/>
-      Age: {age}
+      <button onClick={updateLit} className="lightButton">{isLit? "Turn Off":"Turn On"}</button>
       <br/>
-      <button onClick={updateLit}>Toggle Light</button>
+      <h1>Temp: {temp}°F</h1> 
       <br/>
-      <button onClick={increaseAge}>Increase Age</button>
+      <button onClick={increaseTemp} className="tempButton">+</button>
+      <button onClick={decreaseTemp} className="tempButton">-</button>
         
       
     </div>
